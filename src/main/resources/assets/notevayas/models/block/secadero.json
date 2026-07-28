@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "notevayas:block/secadero_top",
+    "bottom": "notevayas:block/secadero_top",
+    "side": "notevayas:block/secadero_side"
+  }
+}

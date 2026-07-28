@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "agua=0": {
+      "model": "notevayas:block/bong"
+    },
+    "agua=1": {
+      "model": "notevayas:block/bong"
+    },
+    "agua=2": {
+      "model": "notevayas:block/bong"
+    },
+    "agua=3": {
+      "model": "notevayas:block/bong"
+    },
+    "agua=4": {
+      "model": "notevayas:block/bong"
+    }
+  }
+}

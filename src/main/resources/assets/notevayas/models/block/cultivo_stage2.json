@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "notevayas:block/cultivo_stage2"
+  }
+}

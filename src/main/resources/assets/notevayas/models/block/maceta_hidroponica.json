@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "notevayas:block/maceta_top",
+    "bottom": "notevayas:block/maceta_top",
+    "side": "notevayas:block/maceta_side"
+  }
+}

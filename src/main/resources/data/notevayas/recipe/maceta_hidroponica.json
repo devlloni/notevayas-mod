@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "W": "minecraft:water_bucket",
+    "D": "minecraft:dirt"
+  },
+  "pattern": [
+    "CWC",
+    "CDC",
+    " C "
+  ],
+  "result": {
+    "id": "notevayas:maceta_hidroponica"
+  }
+}

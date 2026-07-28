@@ -1,0 +1,11 @@
+{
+	"notevayas": {
+		"subtitle": "subtitles.notevayas.notevayas",
+		"sounds": [
+			{
+				"name": "notevayas:notevayas",
+				"stream": false
+			}
+		]
+	}
+}

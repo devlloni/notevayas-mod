@@ -1,0 +1,66 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "notevayas:blocks/cultivo_purpura_nocturna",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "notevayas:cogollo_fresco_purpura_nocturna",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "notevayas:cultivo_purpura_nocturna",
+                  "properties": {
+                    "age": "7"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "notevayas:semilla_purpura_nocturna"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "notevayas:cultivo_purpura_nocturna",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "notevayas:semilla_purpura_nocturna",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 3.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "notevayas:block/cultivo_stage0"
+    },
+    "age=1": {
+      "model": "notevayas:block/cultivo_stage1"
+    },
+    "age=2": {
+      "model": "notevayas:block/cultivo_stage2"
+    },
+    "age=3": {
+      "model": "notevayas:block/cultivo_stage3"
+    },
+    "age=4": {
+      "model": "notevayas:block/cultivo_stage4"
+    },
+    "age=5": {
+      "model": "notevayas:block/cultivo_stage5"
+    },
+    "age=6": {
+      "model": "notevayas:block/cultivo_stage6"
+    },
+    "age=7": {
+      "model": "notevayas:block/cultivo_stage7"
+    }
+  }
+}

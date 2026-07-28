@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:glass",
+    "C": "minecraft:copper_ingot",
+    "W": "minecraft:water_bucket"
+  },
+  "pattern": [
+    "G G",
+    " W ",
+    "CGC"
+  ],
+  "result": {
+    "id": "notevayas:bong"
+  }
+}

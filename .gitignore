@@ -1,0 +1,66 @@
+# gradle
+
+.gradle/
+build/
+out/
+classes/
+
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/
+
+# java
+
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+# minecraft (por si se corre fuera de run/)
+
+logs/
+crash-reports/
+saves/
+*.mca
+
+# herramientas de agentes
+
+.claude/settings.local.json
+.claude/*.local.json
+
+# credenciales y config local (nunca commitear)
+
+.env
+.env.*
+!.env.example
+local.properties
+secrets.properties
+credentials.json
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore

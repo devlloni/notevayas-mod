@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "notevayas:block/lampara_cultivo"
+    },
+    "lit=true": {
+      "model": "notevayas:block/lampara_cultivo_on"
+    }
+  }
+}

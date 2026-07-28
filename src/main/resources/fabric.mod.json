@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "notevayas",
+	"version": "${version}",
+	"name": "NoTeVayas",
+	"description": "Agrega el comando /notevayas, que reproduce un sonido en la posicion del jugador que lo ejecuta. Cualquier jugador puede usarlo, sin permisos especiales.",
+	"authors": [
+		"devllo"
+	],
+	"contact": {},
+	"license": "MIT",
+	"icon": "assets/notevayas/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.devllo.notevayas.NoTeVayas"
+		],
+		"client": [
+			"com.devllo.notevayas.client.NoTeVayasClient"
+		]
+	},
+	"mixins": [
+		"notevayas.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

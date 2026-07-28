@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "bong": "notevayas:block/bong_block",
+    "particle": "notevayas:block/bong_block"
+  },
+  "elements": [
+    {
+      "from": [
+        5,
+        0,
+        5
+      ],
+      "to": [
+        11,
+        12,
+        11
+      ],
+      "faces": {
+        "north": {
+          "texture": "#bong",
+          "uv": [
+            0,
+            0,
+            6,
+            12
+          ]
+        },
+        "south": {
+          "texture": "#bong",
+          "uv": [
+            0,
+            0,
+            6,
+            12
+          ]
+        },
+        "east": {
+          "texture": "#bong",
+          "uv": [
+            0,
+            0,
+            6,
+            12
+          ]
+        },
+        "west": {
+          "texture": "#bong",
+          "uv": [
+            0,
+            0,
+            6,
+            12
+          ]
+        },
+        "up": {
+          "texture": "#bong",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        },
+        "down": {
+          "texture": "#bong",
+          "uv": [
+            0,
+            0,
+            6,
+            6
+          ]
+        }
+      }
+    }
+  ]
+}

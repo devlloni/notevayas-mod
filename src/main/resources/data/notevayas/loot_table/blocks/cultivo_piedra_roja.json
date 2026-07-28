@@ -1,0 +1,66 @@
+{
+  "type": "minecraft:block",
+  "random_sequence": "notevayas:blocks/cultivo_piedra_roja",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "notevayas:cogollo_fresco_piedra_roja",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "notevayas:cultivo_piedra_roja",
+                  "properties": {
+                    "age": "7"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "notevayas:semilla_piedra_roja"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1.0,
+      "conditions": [
+        {
+          "condition": "minecraft:block_state_property",
+          "block": "notevayas:cultivo_piedra_roja",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "notevayas:semilla_piedra_roja",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 1.0,
+                "max": 3.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
