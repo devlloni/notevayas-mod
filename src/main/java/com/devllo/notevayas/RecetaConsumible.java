@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
+import net.minecraft.world.item.crafting.display.ShapelessCraftingRecipeDisplay;
+import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
 
 /**
@@ -25,9 +31,13 @@ import net.minecraft.world.level.Level;
  * crafting_transmute copia components pero solo admite 2 ingredientes, asi que solo
  * habria servido para el porro.
  *
- * Al ser CustomRecipe (isSpecial), estas combinaciones no salen en el libro de recetas.
+ * Ser CustomRecipe NO impide salir en el libro de recetas: isSpecial() solo apaga el
+ * autocompletado de la grilla. Lo que muestra el libro es lo que devuelve display(), que
+ * por defecto viene vacio; abajo se arma una entrada por combinacion (ver display()).
  */
 public class RecetaConsumible extends CustomRecipe {
+	/** El tag de cogollos secos, para mostrar "cualquier cepa" en el libro de recetas. */
+	private static final TagKey<Item> COGOLLOS = TagKey.create(Registries.ITEM, NoTeVayas.id("cogollos"));
 	/** Una combinacion: que hace falta ademas de los cogollos, y que sale. */
 	private record Combinacion(int cogollos, List<Item> extras, Item resultado, int cantidad) {
 	}
@@ -147,6 +157,49 @@ public class RecetaConsumible extends CustomRecipe {
 		resultado.set(ModComponents.CEPA, cepa);
 		resultado.set(ModComponents.CALIDAD, new Calidad(calidad));
 		return resultado;
+	}
+
+	// ---------------------------------------------------------------- libro de recetas
+
+	/**
+	 * Una entrada del libro por combinacion, mas una extra para el porro con moledor (que
+	 * rinde el doble). Los cogollos se muestran como el tag #notevayas:cogollos, asi que
+	 * el libro cicla las 4 cepas en vez de fijar una.
+	 *
+	 * El resultado se muestra sin components: la cepa y la calidad salen recien al
+	 * craftear, porque dependen de los cogollos que uses.
+	 */
+	@Override
+	public List<RecipeDisplay> display() {
+		List<RecipeDisplay> entradas = new ArrayList<>();
+		for (Combinacion combo : COMBINACIONES) {
+			entradas.add(mostrar(combo, false));
+			if (combo.resultado() == ModItems.PORRO) {
+				entradas.add(mostrar(combo, true));
+			}
+		}
+		return entradas;
+	}
+
+	private static RecipeDisplay mostrar(Combinacion combo, boolean conMoledor) {
+		List<SlotDisplay> ingredientes = new ArrayList<>();
+		for (int i = 0; i < combo.cogollos(); i++) {
+			ingredientes.add(new SlotDisplay.TagSlotDisplay(COGOLLOS));
+		}
+		for (Item extra : combo.extras()) {
+			ingredientes.add(new SlotDisplay.ItemSlotDisplay(extra));
+		}
+
+		int cantidad = combo.cantidad();
+		if (conMoledor) {
+			ingredientes.add(new SlotDisplay.ItemSlotDisplay(ModItems.MOLEDOR));
+			cantidad *= MULTIPLICADOR_MOLEDOR;
+		}
+
+		return new ShapelessCraftingRecipeDisplay(
+				ingredientes,
+				new SlotDisplay.ItemStackSlotDisplay(new ItemStackTemplate(combo.resultado(), cantidad)),
+				new SlotDisplay.ItemSlotDisplay(Items.CRAFTING_TABLE));
 	}
 
 	/** El moledor no se consume: se queda en la grilla con 1 punto menos de durabilidad. */

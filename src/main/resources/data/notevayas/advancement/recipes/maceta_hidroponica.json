@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "tiene_semilla": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#notevayas:semillas"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tiene_la_receta": {
+      "conditions": {
+        "recipe": "notevayas:maceta_hidroponica"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "tiene_la_receta",
+      "tiene_semilla"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "notevayas:maceta_hidroponica"
+    ]
+  }
+}

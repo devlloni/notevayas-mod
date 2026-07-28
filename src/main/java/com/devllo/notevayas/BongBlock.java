@@ -74,16 +74,20 @@ public class BongBlock extends Block {
 			return InteractionResult.SUCCESS;
 		}
 
+		// Cogollo fresco: no sirve, hay que secarlo. Se avisa y se corta la interaccion,
+		// porque si no el click derecho termina comiendoselo (el fresco es comida).
+		if (enMano.getItem() instanceof CogolloItem fresco && fresco.esFresco()) {
+			avisar(player, "mensaje.notevayas.bong_cogollo_fresco");
+			return InteractionResult.CONSUME;
+		}
+
 		// Cogollo seco: se fuma.
-		if (!(enMano.getItem() instanceof CogolloItem cogollo) || cogollo.esFresco()) {
+		if (!(enMano.getItem() instanceof CogolloItem cogollo)) {
 			return InteractionResult.PASS;
 		}
 
 		if (state.getValue(AGUA) <= 0) {
-			// El segundo parametro true manda el mensaje a la action bar.
-			if (player instanceof ServerPlayer servidor) {
-				servidor.sendSystemMessage(Component.translatable("mensaje.notevayas.bong_sin_agua"), true);
-			}
+			avisar(player, "mensaje.notevayas.bong_sin_agua");
 			return InteractionResult.CONSUME;
 		}
 
@@ -99,5 +103,32 @@ public class BongBlock extends Block {
 		}
 		level.playSound(null, pos, SoundEvents.GENERIC_DRINK.value(), SoundSource.PLAYERS, 0.8f, 1.2f);
 		return InteractionResult.SUCCESS;
+	}
+
+	/**
+	 * Click derecho con la mano vacia: dice como esta el bong. Sin esto, un bong sin agua
+	 * o sin cogollo seco en la mano no da ninguna senal de por que no pasa nada.
+	 */
+	@Override
+	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player,
+			BlockHitResult hit) {
+		if (level.isClientSide()) {
+			return InteractionResult.SUCCESS;
+		}
+
+		int agua = state.getValue(AGUA);
+		if (agua <= 0) {
+			avisar(player, "mensaje.notevayas.bong_sin_agua");
+		} else {
+			avisar(player, "mensaje.notevayas.bong_listo", agua);
+		}
+		return InteractionResult.SUCCESS;
+	}
+
+	/** Mensaje a la action bar (el true del segundo parametro). */
+	private static void avisar(Player player, String clave, Object... args) {
+		if (player instanceof ServerPlayer servidor) {
+			servidor.sendSystemMessage(Component.translatable(clave, args), true);
+		}
 	}
 }

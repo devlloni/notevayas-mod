@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "tiene_cogollo_fresco": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#notevayas:cogollos_frescos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tiene_la_receta": {
+      "conditions": {
+        "recipe": "notevayas:secadero"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "tiene_la_receta",
+      "tiene_cogollo_fresco"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "notevayas:secadero"
+    ]
+  }
+}

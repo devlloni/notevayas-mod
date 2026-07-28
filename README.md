@@ -141,15 +141,28 @@ de 2 y se queda en la grilla gastando 1 de durabilidad (64 usos).
 Los consumibles **heredan la cepa y la calidad** del cogollo usado. Si se mezclan
 cogollos de distinta calidad, se usa la **menor**.
 
-> Las recetas de consumibles no aparecen en el libro de recetas: son recetas especiales
-> (`CustomRecipe`), porque tienen que copiar components y aplicar la regla del moledor,
-> cosas que un JSON no puede hacer.
+Los consumibles son una receta especial (`CustomRecipe`) porque tienen que copiar
+components y aplicar la regla del moledor, cosas que un JSON no puede hacer. Igual
+aparecen en el libro de recetas: la receta expone un `display()` por combinación, con los
+cogollos mostrados como el tag `#notevayas:cogollos` (el libro cicla las 4 cepas).
+
+Todas las recetas del mod traen su advancement en `data/notevayas/advancement/recipes/`.
+Sin eso el libro nunca las desbloquea, aunque estén cargadas.
+
+## Cómo se consiguen las primeras semillas
+
+Dos vías, las dos dan una cepa al azar (Púrpura Nocturna con la mitad de probabilidad):
+
+1. **Cortando pasto** — 3% por mata de pasto, helecho o pasto alto. Es la vía que
+   funciona en un mundo ya explorado.
+2. **Cáñamo Silvestre** — la planta generada en el mundo, ver abajo. Solo aparece en
+   chunks nuevos.
 
 ## Generación en el mundo
 
-**Cáñamo Silvestre** aparece de forma poco común en Plains, Savanna, Forest y Taiga.
-Al romperlo dropea 1-2 semillas de una cepa al azar; Púrpura Nocturna tiene la mitad de
-probabilidad que las demás.
+**Cáñamo Silvestre** aparece en Plains, Sunflower Plains, Savanna, Savanna Plateau,
+Forest, Flower Forest, Birch Forest, Taiga y Meadow. Al romperlo dropea 1-2 semillas de
+una cepa al azar; Púrpura Nocturna tiene la mitad de probabilidad que las demás.
 
 No tiene item propio: se obtiene rompiéndolo. Para verlo en creativo:
 
@@ -174,6 +187,7 @@ No tiene item propio: se obtiene rompiéndolo. Para verlo en creativo:
 | Munchies (hambre y saturación) | `ModEffects.java` |
 | Usos de agua del bong | `BongBlock.USOS_POR_BALDE` |
 | Rareza del cáñamo silvestre | `data/notevayas/worldgen/placed_feature/canamo_silvestre.json` |
+| Probabilidad de semilla en el pasto | `ModLoot.PROBABILIDAD` |
 | Drops del cultivo | `data/notevayas/loot_table/blocks/cultivo_*.json` |
 
 ## Compilar

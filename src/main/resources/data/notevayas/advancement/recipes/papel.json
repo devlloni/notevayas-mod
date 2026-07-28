@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "tiene_papel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:paper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tiene_la_receta": {
+      "conditions": {
+        "recipe": "notevayas:papel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "tiene_la_receta",
+      "tiene_papel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "notevayas:papel"
+    ]
+  }
+}

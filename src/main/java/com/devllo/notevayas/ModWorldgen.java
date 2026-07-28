@@ -25,7 +25,11 @@ public final class ModWorldgen {
 
 	public static void register() {
 		BiomeModifications.addFeature(
-				BiomeSelectors.includeByKey(Biomes.PLAINS, Biomes.SAVANNA, Biomes.FOREST, Biomes.TAIGA),
+				BiomeSelectors.includeByKey(
+						Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS,
+						Biomes.SAVANNA, Biomes.SAVANNA_PLATEAU,
+						Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST,
+						Biomes.TAIGA, Biomes.MEADOW),
 				GenerationStep.Decoration.VEGETAL_DECORATION,
 				CANAMO_SILVESTRE);
 	}

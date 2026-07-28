@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "tiene_hierro": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:iron_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tiene_la_receta": {
+      "conditions": {
+        "recipe": "notevayas:moledor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "tiene_la_receta",
+      "tiene_hierro"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "notevayas:moledor"
+    ]
+  }
+}

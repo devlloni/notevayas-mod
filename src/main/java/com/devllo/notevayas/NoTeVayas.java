@@ -31,6 +31,7 @@ public class NoTeVayas implements ModInitializer {
 		ModRecipes.register();
 		ModCreativeTab.register();
 		ModWorldgen.register();
+		ModLoot.register();
 
 		CommandRegistrationCallback.EVENT.register(
 				(dispatcher, registryAccess, environment) -> NoTeVayasCommand.register(dispatcher));

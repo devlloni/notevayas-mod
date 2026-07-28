@@ -1,17 +1,21 @@
 package com.devllo.notevayas;
 
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.component.ItemLore;
 
 public final class ModItems {
 	// Cogollos: llevan el component de calidad por defecto en REGULAR, asi que
@@ -38,8 +42,12 @@ public final class ModItems {
 			props -> new ConsumibleItem(PerfilConsumo.SPACE_CAKE, props),
 			new Item.Properties().food(new FoodProperties(6, 0.4f, true)));
 
+	// El bong es un BLOQUE: no se usa desde la mano, hay que colocarlo. La linea de lore
+	// esta porque sin ella no hay nada que lo diga y es la confusion mas facil de tener.
 	public static final Item BONG = registrar("bong",
-			props -> new BlockItem(ModBlocks.BONG, props), new Item.Properties());
+			props -> new BlockItem(ModBlocks.BONG, props),
+			new Item.Properties().component(DataComponents.LORE, new ItemLore(
+					List.of(Component.translatable("lore.notevayas.bong")))));
 
 	public static final Item LAMPARA_CULTIVO = registrar("lampara_cultivo",
 			props -> new BlockItem(ModBlocks.LAMPARA_CULTIVO, props), new Item.Properties());

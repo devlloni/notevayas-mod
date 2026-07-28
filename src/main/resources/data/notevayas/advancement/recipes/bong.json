@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "tiene_cogollo": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#notevayas:cogollos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tiene_la_receta": {
+      "conditions": {
+        "recipe": "notevayas:bong"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "tiene_la_receta",
+      "tiene_cogollo"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "notevayas:bong"
+    ]
+  }
+}
