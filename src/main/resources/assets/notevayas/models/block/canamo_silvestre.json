@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "notevayas:block/cultivo_stage3"
+  }
+}

@@ -33,5 +33,10 @@
   "block.notevayas.bong": "Bong",
   "effect.notevayas.munchies": "Munchies",
   "effect.notevayas.digestion": "Digestión",
-  "mensaje.notevayas.bong_sin_agua": "El bong no tiene agua. Recargálo con un balde."
+  "mensaje.notevayas.bong_sin_agua": "El bong no tiene agua. Recargálo con un balde.",
+  "itemGroup.notevayas.general": "NoTeVayas",
+  "block.notevayas.canamo_silvestre": "Cáñamo Silvestre",
+  "tag.item.notevayas.cogollos": "Cogollos",
+  "tag.item.notevayas.cogollos_frescos": "Cogollos Frescos",
+  "tag.item.notevayas.semillas": "Semillas"
 }

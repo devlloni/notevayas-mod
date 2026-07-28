@@ -33,5 +33,10 @@
   "block.notevayas.bong": "Bong",
   "effect.notevayas.munchies": "Munchies",
   "effect.notevayas.digestion": "Digesting",
-  "mensaje.notevayas.bong_sin_agua": "The bong has no water. Refill it with a bucket."
+  "mensaje.notevayas.bong_sin_agua": "The bong has no water. Refill it with a bucket.",
+  "itemGroup.notevayas.general": "NoTeVayas",
+  "block.notevayas.canamo_silvestre": "Wild Hemp",
+  "tag.item.notevayas.cogollos": "Buds",
+  "tag.item.notevayas.cogollos_frescos": "Fresh Buds",
+  "tag.item.notevayas.semillas": "Seeds"
 }

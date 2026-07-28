@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "notevayas:cultivo_piedra_roja",
+    "notevayas:cultivo_verde_sol",
+    "notevayas:cultivo_media_luna",
+    "notevayas:cultivo_purpura_nocturna"
+  ]
+}

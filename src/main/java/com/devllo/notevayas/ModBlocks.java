@@ -45,6 +45,15 @@ public final class ModBlocks {
 							? LamparaCultivoBlock.LUZ_PRENDIDA
 							: 0));
 
+	public static final Block CANAMO_SILVESTRE = registrar("canamo_silvestre",
+			CanamoSilvestreBlock::new,
+			BlockBehaviour.Properties.of()
+					.mapColor(MapColor.PLANT)
+					.noCollision()
+					.instabreak()
+					.sound(SoundType.GRASS)
+					.pushReaction(PushReaction.DESTROY));
+
 	public static final Block BONG = registrar("bong",
 			BongBlock::new,
 			BlockBehaviour.Properties.of()
