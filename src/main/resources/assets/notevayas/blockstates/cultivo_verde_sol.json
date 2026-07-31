@@ -23,6 +23,15 @@
     },
     "age=7": {
       "model": "notevayas:block/cultivo_stage7"
+    },
+    "age=8": {
+      "model": "notevayas:block/cultivo_stage8"
+    },
+    "age=9": {
+      "model": "notevayas:block/cultivo_stage9"
+    },
+    "age=10": {
+      "model": "notevayas:block/cultivo_stage10"
     }
   }
 }

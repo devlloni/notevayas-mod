@@ -279,25 +279,29 @@ if (process.argv.length >= 4) {
     const textureRef = process.argv[4] || 'notevayas:block/planta_cannabis';
     convert(inputPath, outputPath, textureRef);
 } else if (process.argv[2] === '--batch') {
-    // Batch mode: convert all 6 models
+    // Batch mode: convert all models (11 stages)
     const ROOT = path.resolve(__dirname, '..');
+    const MODELS_SRC = path.join(ROOT, 'models-src');
     const MODELS_OUT = path.join(ROOT, 'src', 'main', 'resources', 'assets', 'notevayas', 'models', 'block');
     const TEX_OUT = path.join(ROOT, 'src', 'main', 'resources', 'assets', 'notevayas', 'textures', 'block', 'planta_cannabis.png');
     
     const MODELS = [
-        { src: 'planta_v7_2ramas.bbmodel',           out: 'cultivo_stage0.json' },
-        { src: 'planta_v6_3ramas.bbmodel',            out: 'cultivo_stage2.json' },
-        { src: 'planta_v5_60pct_chica.bbmodel',       out: 'cultivo_stage3.json' },
-        { src: 'planta_v4_tallo_fino_chica.bbmodel',  out: 'cultivo_stage4.json' },
-        { src: 'planta_v2_tallo_fino.bbmodel',        out: 'cultivo_stage5.json' },
-        { src: 'planta_v3_ramas_cogollos.bbmodel',    out: 'cultivo_stage7.json' },
+        { src: 'planta_v7_2ramas.bbmodel',                    out: 'cultivo_stage0.json' },
+        { src: 'planta_v6_3ramas.bbmodel',                    out: 'cultivo_stage2.json' },
+        { src: 'planta_v5_60pct_chica.bbmodel',               out: 'cultivo_stage3.json' },
+        { src: 'planta_v4_tallo_fino_chica.bbmodel',          out: 'cultivo_stage4.json' },
+        { src: 'planta_v2_tallo_fino.bbmodel',                out: 'cultivo_stage5.json' },
+        { src: 'planta_v3_ramas_cogollos.bbmodel',            out: 'cultivo_stage7.json' },
+        { src: 'planta_v3_cogollos_1_falta_madurar.bbmodel',  out: 'cultivo_stage8.json' },
+        { src: 'planta_v3_cogollos_2_perfecto.bbmodel',       out: 'cultivo_stage9.json' },
+        { src: 'planta_v3_cogollos_3_super_maduro.bbmodel',   out: 'cultivo_stage10.json' },
     ];
     
     let firstBBModel = null;
     for (const m of MODELS) {
         console.log('\n=== ' + m.src + ' -> ' + m.out + ' ===');
         const bbmodel = convert(
-            path.join(ROOT, m.src),
+            path.join(MODELS_SRC, m.src),
             path.join(MODELS_OUT, m.out),
             'notevayas:block/planta_cannabis'
         );

@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
@@ -32,11 +33,19 @@ public class CultivoBlock extends CropBlock {
 			).apply(instance, CultivoBlock::new));
 
 	/**
+	 * Ciclo de vida completo: 11 etapas (0-10).
+	 * 0-1 brote, 2 plántula, 3-4 vegetativo, 5-6 vegetativo maduro,
+	 * 7 floración, 8 maduración temprana, 9 perfecta, 10 super maduro.
+	 */
+	public static final int MAX_AGE = 10;
+	public static final IntegerProperty AGE = IntegerProperty.create("age", 0, MAX_AGE);
+
+	/**
 	 * Se guarda si llovio en algun momento del crecimiento, para el +1 de calidad.
 	 *
 	 * Va como property del BlockState y no como BlockEntity: es un unico bit, y un
 	 * BlockEntity por planta seria caro en una plantacion grande. Sube el bloque de
-	 * 8 a 16 estados, que es despreciable.
+	 * 11 a 22 estados, que es despreciable.
 	 */
 	public static final BooleanProperty LLOVIDO = BooleanProperty.create("llovido");
 
@@ -73,9 +82,18 @@ public class CultivoBlock extends CropBlock {
 	}
 
 	@Override
+	public IntegerProperty getAgeProperty() {
+		return AGE;
+	}
+
+	@Override
+	public int getMaxAge() {
+		return MAX_AGE;
+	}
+
+	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-		super.createBlockStateDefinition(builder);
-		builder.add(LLOVIDO);
+		builder.add(AGE, LLOVIDO);
 	}
 
 	@Override
